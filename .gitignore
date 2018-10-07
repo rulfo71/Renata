@@ -1,4 +1,12 @@
+# intellij
 .idea/
+
+# eclipse
+.project
+.classpath
+.settings
+
+# others
 log/
 target/
 mysql-data/
