@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Tramo {
 
     @EmbeddedId
-    TramoId tramoId;
+    TramoId id;
 
     @Column(name = "kilometro_inicial")
     private int kilometroInicial;
@@ -18,9 +18,12 @@ public class Tramo {
     @Column(name = "kilometro_final")
     private int kilometroFinal;
 
-    public Tramo(TramoId tramoId, int kilometroInicial) {
-        this.kilometroInicial = kilometroInicial;
-        this.tramoId = tramoId;
+    public Tramo(){
+
+    }
+
+    public Tramo(Municipio municipioInicio, Municipio municipioFin) {
+        this.id = new TramoId(municipioInicio, municipioFin);
     }
 
 
