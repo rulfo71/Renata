@@ -1,5 +1,10 @@
 .idea/
+<<<<<<< Updated upstream
 
 log/
 target/
 mysql-data/
+=======
+.log/
+/target/
+>>>>>>> Stashed changes

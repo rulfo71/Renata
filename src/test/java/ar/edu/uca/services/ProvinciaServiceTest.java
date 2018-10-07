@@ -9,7 +9,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.uca.repositories.ProvinciaRepository;
+
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 @SpringBootTest
@@ -22,6 +26,7 @@ public class ProvinciaServiceTest {
 	private PaisService paisService;
 	@Autowired
 	private ProvinciaService provinciaService;
+	private ProvinciaRepository provinciaRepository;
 
 
 	@Before
@@ -37,6 +42,16 @@ public class ProvinciaServiceTest {
 		assertNotNull(provinciaService.createProvincia("Argentina", "Buenos Aires"));
 
 	}
+	@Test
+	public void borrarProvinciaTest() {
+
+		paisService.crearPais("Argentina");
+		provinciaService.createProvincia("Argentina", "Buenos Aires");
+		
+		assertTrue(provinciaService.borrarProvincia("Buenos Aires","Argentina"));
+		assertFalse(provinciaService.borrarProvincia("Mendoza","Argentina"));
+	}
+
 
 
 }

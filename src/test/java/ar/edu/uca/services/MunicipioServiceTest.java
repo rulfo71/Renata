@@ -11,7 +11,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 @SpringBootTest
@@ -39,6 +41,17 @@ public class MunicipioServiceTest {
 		assertNotNull(provinciaService.createProvincia("Argentina", "Buenos Aires"));
 		assertNotNull(municipioService.crearMunicipio("San Isidro", "Buenos Aires", "Argentina"));
 		assertNotNull(municipioService.crearMunicipio("San Isidro", "Buenos Aires", "Argentina"));
-
+	}
+	
+	@Test
+	public void borrarProvinciaTest() {
+		paisService.crearPais("Argentina");
+		provinciaService.createProvincia("Argentina", "Buenos Aires");
+		municipioService.crearMunicipio("San Isidro", "Buenos Aires", "Argentina");
+		
+		assertTrue(municipioService.borrarMunicipio("San Isidro", "Buenos Aires", "Argentina"));
+		assertFalse(municipioService.borrarMunicipio("Tigre", "Buenos Aires", "Argentina"));
+		
+		
 	}
 }

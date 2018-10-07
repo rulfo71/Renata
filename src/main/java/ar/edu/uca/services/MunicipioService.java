@@ -44,5 +44,13 @@ public class MunicipioService {
     public Municipio buscarMunicipio(String nombreMunicipio, String nombreProvincia, String nombrePais) {
         return municipioRepository.findMunicipioByAndIdNombreAndIdProvinciaIdNombreAndIdProvinciaIdPaisNombre(nombreMunicipio, nombreProvincia, nombrePais);
     }
-
+    
+    public boolean borrarMunicipio(String nombreMunicipio, String nombreProvincia, String nombrePais) {
+    	
+    	Municipio municipio = this.buscarMunicipio(nombreMunicipio, nombreProvincia, nombrePais);
+    	if (isNull(municipio))
+    		return false;
+    	municipioRepository.delete(municipio);
+    	return true;
+    }
 }

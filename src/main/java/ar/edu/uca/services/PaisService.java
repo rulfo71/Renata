@@ -38,6 +38,15 @@ public class PaisService {
     public Pais buscarPais(String nombrePais) {
         return paisRepository.findPaisByNombre(nombrePais);
     }
+    
+    public boolean borrarPais(String nombrePais) {
+        Pais pais = paisRepository.findPaisByNombre(nombrePais);
+        if (isNull(pais)) {
+        	return false; 
+        }
+        paisRepository.delete(pais);
+        return true;
+    }
 
 
 }

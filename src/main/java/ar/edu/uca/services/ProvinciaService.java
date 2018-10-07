@@ -44,6 +44,13 @@ public class ProvinciaService {
     public Provincia guardarProvincia(Provincia provincia) {
         return provinciaRepository.save(provincia);
     }
+    public boolean borrarProvincia(String nombreProvincia, String nombrePais) {
+        Provincia provincia = this.buscarProvincia(nombreProvincia, nombrePais);
+        if (isNull(provincia))
+        	return false;
+        provinciaRepository.delete(provincia);
+        return true; 
+    }
 
 
 }
