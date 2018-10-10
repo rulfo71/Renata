@@ -73,8 +73,6 @@ public class TramoRepositoryTest {
         assertNotNull(tramoRepository.findByIdMunicipioInicioIdNombreAndIdMunicipioInicioIdProvinciaIdNombreAndIdMunicipioInicioIdProvinciaIdPaisNombreAndIdMunicipioFinIdNombreAndIdMunicipioFinIdProvinciaIdNombreAndIdMunicipioFinIdProvinciaIdPaisNombre(nombreMunicipioInicio, nombreProvincia, nombrePais, nombreMunicipioFin, nombreProvincia, nombrePais));
         assertEquals(tramoTest.getId().getMunicipioInicio(),tramoGuardado.getId().getMunicipioInicio());
     }
-
-
 }
 	
 
