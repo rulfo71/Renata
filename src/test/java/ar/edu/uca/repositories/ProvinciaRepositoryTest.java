@@ -25,15 +25,15 @@ import java.util.HashSet;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @WebAppConfiguration
-public class PaisRepositoryTest {
+public class ProvinciaRepositoryTest {
 
-//    private static final HashSet<String> MUNICIPIOS_BUENOS_AIRES = new HashSet<>(Arrays.asList("San Isidro", "San Fernando", "Tigre", "Vicente Lopez"));
-//    private boolean environmentLoaded;
+    private static final HashSet<String> MUNICIPIOS_BUENOS_AIRES = new HashSet<>(Arrays.asList("San Isidro", "San Fernando", "Tigre", "Vicente Lopez"));
+    private boolean environmentLoaded;
 
     @Autowired
     private PaisRepository paisRepository;
-//    @Autowired
-//    private DependenciesLoader dependenciesLoader;
+    @Autowired
+    private DependenciesLoader dependenciesLoader;
 
     @Before
     public void setUp() {
