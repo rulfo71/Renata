@@ -34,7 +34,7 @@ public class DependenciesLoader {
     private MunicipioRepository municipioRepository;
     @Autowired
     private TramoRepository tramoRepository;
-    @Autowired
+    @Autowired 
     private RutaRepository rutaRepository;
 
     public void setupTestEnvironment() {

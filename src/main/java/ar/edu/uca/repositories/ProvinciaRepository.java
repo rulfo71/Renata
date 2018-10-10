@@ -8,5 +8,8 @@ import javax.transaction.Transactional;
 @Transactional
 public interface ProvinciaRepository extends CrudRepository<Provincia, Integer> {
 
-    public Provincia findByIdNombreAndIdPaisNombre(String nombrePronvincia, String nombrePais);
+	@Transactional
+    public Provincia findByIdNombreAndIdPaisNombre(String nombreProvincia, String nombrePais);
+	@Transactional
+	public void removeByIdNombreAndIdPaisNombre(String nombreProvincia, String nombrePais);
 }

@@ -51,7 +51,6 @@ public class PaisRepositoryTest {
     @Test
     public void guardarTest() {
         String nombrePais = "Argentina";
-
         Pais paisTest = new Pais();
         paisTest.setNombre(nombrePais);
         paisRepository.save(paisTest);

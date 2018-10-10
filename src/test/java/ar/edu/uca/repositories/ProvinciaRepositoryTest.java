@@ -27,74 +27,54 @@ import java.util.HashSet;
 @WebAppConfiguration
 public class ProvinciaRepositoryTest {
 
-    private static final HashSet<String> MUNICIPIOS_BUENOS_AIRES = new HashSet<>(Arrays.asList("San Isidro", "San Fernando", "Tigre", "Vicente Lopez"));
-    private boolean environmentLoaded;
+//    private static final HashSet<String> MUNICIPIOS_BUENOS_AIRES = new HashSet<>(Arrays.asList("San Isidro", "San Fernando", "Tigre", "Vicente Lopez"));
+//    private boolean environmentLoaded;
 
     @Autowired
-    private PaisRepository paisRepository;
+    private ProvinciaRepository provinciaRepository;
     @Autowired
+    private PaisRepository paisRepository;
+//    @Autowired
     private DependenciesLoader dependenciesLoader;
 
     @Before
     public void setUp() {
-//        dependenciesLoader.setupTestEnvironment();
+//        dependenciesLoader.cleanDataBase();
     }
 
-//    @Test
-//    public void findPaisByNombreTest() {
-//        System.out.println("Used entities in test: ");
-//        for (Pais pais : paisRepository.findAll()) {
-//            System.out.println(String.format("Nombre: %s", pais.getNombre()));
-//        }
-//    }
-
     @Test
-    public void guardarTest() {
+    public void guardarPaisTest() {
         String nombrePais = "Argentina";
-
+        String nombreProvincia = "Buenos Aires";
         Pais paisTest = new Pais();
         paisTest.setNombre(nombrePais);
         paisRepository.save(paisTest);
-        Pais paisGuardado = paisRepository.findPaisByNombre(paisTest.getNombre());
 
-        assertNotNull(paisRepository.findPaisByNombre(paisTest.getNombre()));
-        assertEquals(paisTest.getNombre(), paisGuardado.getNombre());
+        Provincia provinciaTest = new Provincia(nombreProvincia, paisTest);
+        
+        provinciaRepository.save(provinciaTest);
+        
+        Provincia provinciaGuardada = provinciaRepository.findByIdNombreAndIdPaisNombre(provinciaTest.getId().getNombre(),provinciaTest.getId().getPais().getNombre());
+        
+        assertNotNull(provinciaRepository.findByIdNombreAndIdPaisNombre(provinciaTest.getId().getNombre(),provinciaTest.getId().getPais().getNombre()));
+        assertEquals(provinciaTest.getId().getNombre(),provinciaGuardada.getId().getNombre());
     }
 
     @Test
-    public void borrarPaisTest() {
+    public void borrarProvinciaTest() {
         String nombrePais = "Uruguay";
+        String nombreProvincia = "Cabo Polonio";
 
         Pais paisTest = new Pais();
         paisTest.setNombre(nombrePais);
         paisRepository.save(paisTest);
-
-        Pais paisGuardado = paisRepository.findPaisByNombre(paisTest.getNombre());
-
-        assertNotNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
-        paisRepository.removePaisByNombre(paisTest.getNombre());
-
-        assertNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
+        
+        Provincia provinciaTest = new Provincia(nombreProvincia, paisTest);
+        provinciaRepository.save(provinciaTest);
+        provinciaRepository.removeByIdNombreAndIdPaisNombre(nombreProvincia, nombrePais);
+        
+        assertNull(provinciaRepository.findByIdNombreAndIdPaisNombre(nombreProvincia, nombrePais));
     }
-//    @Test
-//    public void borrarPaisDebeBorrarSusProvinciasTest() {
-//        String nombrePais = "Uruguay";
-//
-//        Pais paisTest = new Pais();
-//        paisTest.setNombre(nombrePais);
-//        
-//        
-//        
-//        paisRepository.save(paisTest);
-//
-//        Pais paisGuardado = paisRepository.findPaisByNombre(paisTest.getNombre());
-//
-//        assertNotNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
-//        paisRepository.removePaisByNombre(paisTest.getNombre());
-//
-//        assertNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
-//    }
-
 }
 
 
