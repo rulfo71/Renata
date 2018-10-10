@@ -34,8 +34,6 @@ public class ProvinciaServiceTest {
 	private ProvinciaService provinciaService;
 	@Autowired
 	private PaisRepository paisRepository;
-	@Autowired
-	private ProvinciaRepository provinciaRepository;
 	private Pais paisCreado;
 	private Pais paisDeBase;
 

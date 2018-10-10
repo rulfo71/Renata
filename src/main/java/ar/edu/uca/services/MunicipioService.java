@@ -33,11 +33,11 @@ public class MunicipioService {
             return municipio;
 
         municipio = new Municipio(nombreMunicipio, provincia);
-        return guardarProvincia(municipio);
+        return guardarMunicipio(municipio);
 
     }
 
-    public Municipio guardarProvincia(Municipio municipio) {
+    public Municipio guardarMunicipio(Municipio municipio) {
         return municipioRepository.save(municipio);
     }
 

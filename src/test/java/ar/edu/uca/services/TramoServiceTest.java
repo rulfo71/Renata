@@ -39,9 +39,6 @@ public class TramoServiceTest {
 		dependenciesLoader.cleanDataBase();
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	@Test
 	public void buscarTramoTest() {		
