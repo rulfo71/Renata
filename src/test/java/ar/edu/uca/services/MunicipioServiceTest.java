@@ -35,7 +35,6 @@ public class MunicipioServiceTest {
 	private MunicipioService municipioService;
 	@Autowired
 	private DependenciesLoader dependenciesLoader;
-	@Autowired
 
 	@Before
 	public void setUp() throws Exception {

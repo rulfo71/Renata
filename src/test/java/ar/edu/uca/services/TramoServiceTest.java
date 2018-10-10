@@ -44,6 +44,8 @@ public class TramoServiceTest {
 	private String nombreProvincia;
 	private String nombreMunicipioInicio;
 	private String nombreMunicipioFin;
+	private int kilometroInicio;
+	private int kilometroFin;
 	
 	private String tipoRuta;
 	private int numeroRuta;
@@ -60,18 +62,21 @@ public class TramoServiceTest {
 		nombreMunicipioFin= "Olivos";
 
 		municipioService.crearMunicipio(nombreMunicipioInicio, nombreProvincia, nombrePais);
-		municipioService.crearMunicipio(nombreMunicipioFin, nombreProvincia, nombrePais);				
+		municipioService.crearMunicipio(nombreMunicipioFin, nombreProvincia, nombrePais);
+		
+		kilometroInicio = 0;
+		kilometroFin = 100;
 
 	}
 	@Test
 	public void crearTramoTest() {
-		Tramo tramo = tramoService.crearTramo(nombreMunicipioInicio, nombreProvincia, nombrePais, nombreMunicipioFin, nombreProvincia, nombrePais);
+		Tramo tramo = tramoService.crearTramo(kilometroInicio, kilometroFin, nombreMunicipioInicio, nombreProvincia, nombrePais, nombreMunicipioFin, nombreProvincia, nombrePais);
 		assertNotNull(tramo);
 	}
 
 		@Test
 		public void buscarTramoTest() {	
-			Tramo tramoCreado = tramoService.crearTramo(nombreMunicipioInicio, nombreProvincia, nombrePais, nombreMunicipioFin, nombreProvincia, nombrePais);
+			Tramo tramoCreado = tramoService.crearTramo(kilometroInicio, kilometroFin, nombreMunicipioInicio, nombreProvincia, nombrePais, nombreMunicipioFin, nombreProvincia, nombrePais);
 			
 			Tramo tramoQueNoExiste = tramoService.buscarTramo("San Isidro", "Buenos Aires", "Argentina", "San Fernando", "Buenos Aires", "Argentina");
 			Tramo tramoEncontrado = tramoService.buscarTramo(nombreMunicipioInicio, nombreProvincia, nombrePais, nombreMunicipioFin, nombreProvincia, nombrePais);

@@ -29,7 +29,6 @@ public class RutaService {
         this.tramoService = tramoService;
         this.rutaRepository = rutaRepository;
     }
-
 	@Transactional
 	public Ruta crearRuta(String tipo, int numero, Collection<Tramo> tramos) {
 

@@ -27,9 +27,6 @@ import java.util.HashSet;
 @WebAppConfiguration
 public class PaisRepositoryTest {
 
-//    private static final HashSet<String> MUNICIPIOS_BUENOS_AIRES = new HashSet<>(Arrays.asList("San Isidro", "San Fernando", "Tigre", "Vicente Lopez"));
-//    private boolean environmentLoaded;
-
     @Autowired
     private PaisRepository paisRepository;
 //    @Autowired
@@ -39,14 +36,6 @@ public class PaisRepositoryTest {
     public void setUp() {
 //        dependenciesLoader.setupTestEnvironment();
     }
-
-//    @Test
-//    public void findPaisByNombreTest() {
-//        System.out.println("Used entities in test: ");
-//        for (Pais pais : paisRepository.findAll()) {
-//            System.out.println(String.format("Nombre: %s", pais.getNombre()));
-//        }
-//    }
 
     @Test
     public void buscarTest() {

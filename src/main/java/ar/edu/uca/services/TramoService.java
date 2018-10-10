@@ -22,7 +22,7 @@ public class TramoService {
         this.tramoRepository = tramoRepository;
     }
 
-    public Tramo crearTramo(String nombreMunicipioInicio, String nombreProvinciaInicio, String nombrePaisInicio, String nombreMunicipioFin, String nombreProvinciaFin, String nombrePaisFin){
+    public Tramo crearTramo(int kilometroInicial, int kilometroFinal, String nombreMunicipioInicio, String nombreProvinciaInicio, String nombrePaisInicio, String nombreMunicipioFin, String nombreProvinciaFin, String nombrePaisFin){
 
         Municipio municipioInicio =  municipioService.buscarMunicipio(nombreMunicipioInicio, nombreProvinciaInicio, nombrePaisInicio);
         if (isNull(municipioInicio))
@@ -37,6 +37,9 @@ public class TramoService {
             return tramo;
 
         tramo = new Tramo(municipioInicio, municipioFin);
+        tramo.setKilometroInicial(kilometroInicial);
+        tramo.setKilometroFinal(kilometroFinal);
+        
         return guardarTramo(tramo);
 
     }

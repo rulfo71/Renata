@@ -27,17 +27,14 @@ import java.util.HashSet;
 @WebAppConfiguration
 public class MunicipioRepositoryTest {
 
-//    private static final HashSet<String> MUNICIPIOS_BUENOS_AIRES = new HashSet<>(Arrays.asList("San Isidro", "San Fernando", "Tigre", "Vicente Lopez"));
-//    private boolean environmentLoaded;
-
     @Autowired
     private ProvinciaRepository provinciaRepository;
     @Autowired
     private PaisRepository paisRepository;
     @Autowired
     private MunicipioRepository municipioRepository;
-//    @Autowired
-    private DependenciesLoader dependenciesLoader;
+//  @Autowired
+//    private DependenciesLoader dependenciesLoader;
 
     @Before
     public void setUp() {

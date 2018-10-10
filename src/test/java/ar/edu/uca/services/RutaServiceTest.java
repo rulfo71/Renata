@@ -56,6 +56,10 @@ public class RutaServiceTest {
 	private String nombreMunicipioFinPrimerTramo;
 	private String nombreMunicipioInicioSegundoTramo;
 	private String nombreMunicipioFinSegundoTramo;
+	private int kilometroInicioPrimerTramo;
+	private int kilometroFinPrimerTramo;
+	private int kilometroInicioSegundoTramo;
+	private int kilometroFinSegundoTramo;
 	
 	private String tipoRuta;
 	private int numeroRuta;
@@ -78,14 +82,18 @@ public class RutaServiceTest {
 		nombreMunicipioFinPrimerTramo = "Olivos";
 		nombreMunicipioInicioSegundoTramo = "Olivos";
 		nombreMunicipioFinSegundoTramo = "Florida";
+		kilometroInicioPrimerTramo = 0 ; 
+		kilometroFinPrimerTramo = 100; 
+		kilometroInicioSegundoTramo = 100; 
+		kilometroFinSegundoTramo = 200; 
 		
 		municipioService.crearMunicipio(nombreMunicipioInicioPrimerTramo, nombreProvincia, nombrePais);
 		municipioService.crearMunicipio(nombreMunicipioFinPrimerTramo, nombreProvincia, nombrePais);
 		municipioService.crearMunicipio(nombreMunicipioInicioSegundoTramo, nombreProvincia, nombrePais);
 		municipioService.crearMunicipio(nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);				
 		
-		Tramo primerTramo = tramoService.crearTramo(nombreMunicipioInicioPrimerTramo, nombreProvincia, nombrePais, nombreMunicipioFinPrimerTramo, nombreProvincia, nombrePais);
-		Tramo segundoTramo = tramoService.crearTramo(nombreMunicipioInicioSegundoTramo, nombreProvincia, nombrePais, nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);
+		Tramo primerTramo = tramoService.crearTramo(kilometroInicioPrimerTramo,kilometroFinPrimerTramo, nombreMunicipioInicioPrimerTramo, nombreProvincia, nombrePais, nombreMunicipioFinPrimerTramo, nombreProvincia, nombrePais);
+		Tramo segundoTramo = tramoService.crearTramo(kilometroInicioSegundoTramo, kilometroFinSegundoTramo, nombreMunicipioInicioSegundoTramo, nombreProvincia, nombrePais, nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);
 		
 		tramos.add(primerTramo);
 		tramos.add(segundoTramo);
