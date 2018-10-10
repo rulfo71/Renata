@@ -14,6 +14,7 @@ import ar.edu.uca.DependenciesLoader;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import javax.validation.constraints.AssertFalse;
@@ -26,6 +27,8 @@ import javax.validation.constraints.AssertFalse;
 public class PaisServiceTest {
 	@Autowired
 	private PaisService paisService;
+	@Autowired
+	private ProvinciaService provinciaService;
 	@Autowired
 	private DependenciesLoader dependenciesLoader;
 	

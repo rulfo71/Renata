@@ -24,6 +24,7 @@ import ar.edu.uca.repositories.TramoRepository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -96,31 +97,21 @@ public class RutaServiceTest {
 	@Test
 	public void createRutaTest() {
 		Ruta ruta = rutaService.crearRuta(tipoRuta, numeroRuta, tramos);
-		System.out.println(ruta.getTramos());
 		
 		assertNotNull(ruta);
 
 	}
-//	@Test
-//	public void buscarRutaTest() {
-
-//		paisService.crearPais("Argentina");
-//		provinciaService.crearProvincia("Argentina", "Buenos Aires");
-//		
-//		assertTrue(provinciaService.borrarProvincia("Buenos Aires","Argentina"));
-//		assertFalse(provinciaService.borrarProvincia("Mendoza","Argentina"));
+	@Test
+	public void buscarRutaTest() {
 		
-//	}
-//	@Test
-//	public void borrarProvinciaNoBorrePaisTest() {
-//		paisCreado = new Pais();
-//		paisCreado.setNombre("Argentina");
-//
-//		paisService.crearPais("Argentina");
-//		provinciaService.crearProvincia("Argentina", "Buenos Aires");
-//		
-//		paisDeBase = paisRepository.findPaisByNombre("Argentina");
-//		assertEquals(paisCreado, paisDeBase);
-//		
-//	}
+		Ruta rutaCreada = rutaService.crearRuta(tipoRuta, numeroRuta, tramos);
+		
+        Ruta rutaEncontrada = rutaService.buscarRuta(tipoRuta, numeroRuta);
+        Ruta rutaQueNoExiste = rutaService.buscarRuta("No existo", 3);
+
+        assertNotNull(rutaEncontrada);
+        assertNull(rutaQueNoExiste);
+        assertEquals(rutaEncontrada, rutaCreada);		
+	}
+	
 }
