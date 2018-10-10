@@ -15,15 +15,16 @@
 //@Transactional
 //public class RutaService {
 //
-//    @Autowired
-//    private RutaRepository rutaRepository;
+//	@Autowired
+//	private RutaRepository rutaRepository;
 //
-//    @Transactional
-//    public Ruta crearRuta(String tipo, int numero, Collection<Tramo> tramos) {
+//	@Transactional
+//	public Ruta crearRuta(String tipo, int numero, Collection<Tramo> tramos) {
 //
 //
-//        return null;
-//    }
+//		return null;
+//	}
+//
 //
 //
 //}

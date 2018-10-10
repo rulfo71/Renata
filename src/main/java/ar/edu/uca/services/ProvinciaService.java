@@ -24,7 +24,7 @@ public class ProvinciaService {
     }
 
     @Transactional
-    public Provincia createProvincia(String nombrePais, String nombreProvincia) {
+    public Provincia crearProvincia(String nombrePais, String nombreProvincia) {
         Pais pais = paisService.buscarPais(nombrePais);
         if (isNull(pais))
             return null;

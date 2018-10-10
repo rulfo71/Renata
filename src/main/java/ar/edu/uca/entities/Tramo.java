@@ -19,12 +19,9 @@ public class Tramo {
     private int kilometroFinal;
 
     public Tramo(){
-
     }
 
     public Tramo(Municipio municipioInicio, Municipio municipioFin) {
         this.id = new TramoId(municipioInicio, municipioFin);
     }
-
-
 }

@@ -14,7 +14,6 @@ public class Provincia {
     public Provincia() {
     }
 
-
     public Provincia(String nombreProvincia, Pais pais) {
         id = new ProvinciaId(nombreProvincia, pais);
     }

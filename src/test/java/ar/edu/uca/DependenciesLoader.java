@@ -6,6 +6,8 @@ import ar.edu.uca.entities.Provincia;
 import ar.edu.uca.repositories.MunicipioRepository;
 import ar.edu.uca.repositories.PaisRepository;
 import ar.edu.uca.repositories.ProvinciaRepository;
+import ar.edu.uca.repositories.TramoRepository;
+import ar.edu.uca.repositories.RutaRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,10 @@ public class DependenciesLoader {
     private ProvinciaRepository provinciaRepository;
     @Autowired
     private MunicipioRepository municipioRepository;
+    @Autowired
+    private TramoRepository tramoRepository;
+    @Autowired
+    private RutaRepository rutaRepository;
 
     public void setupTestEnvironment() {
         if (!environmentLoaded) {
@@ -47,5 +53,12 @@ public class DependenciesLoader {
             }
             environmentLoaded = true;
         }
+    }
+    public void cleanDataBase() {
+    	paisRepository.deleteAll();
+    	provinciaRepository.deleteAll();
+    	municipioRepository.deleteAll();
+    	tramoRepository.deleteAll();
+    	rutaRepository.deleteAll();
     }
 }

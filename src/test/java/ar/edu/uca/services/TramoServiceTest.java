@@ -9,7 +9,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.uca.DependenciesLoader;
+
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.After;
 
 
 @SpringBootTest
@@ -26,11 +30,17 @@ public class TramoServiceTest {
 	private MunicipioService municipioService;
 	@Autowired
 	private TramoService tramoService;
-
-
+	
+	@Autowired
+	private DependenciesLoader dependenciesLoader;
+	
 	@Before
-	public void setUp() {
+	public void setUp() throws Exception {
+		dependenciesLoader.cleanDataBase();
+	}
 
+	@After
+	public void tearDown() throws Exception {
 	}
 
 	@Test

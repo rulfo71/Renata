@@ -15,7 +15,7 @@ import java.util.Collection;
 public class Ruta {
 
     @EmbeddedId
-    RutaId rutaId;
+    private RutaId rutaId;
 
     @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
     private Collection<Tramo> tramos = new ArrayList<>();

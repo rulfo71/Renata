@@ -30,7 +30,6 @@ public class TramoId implements Serializable {
     private Municipio municipioFin;
 
     public TramoId(){
-
     }
 
     public TramoId(Municipio municipioInicio, Municipio municipioFin) {
