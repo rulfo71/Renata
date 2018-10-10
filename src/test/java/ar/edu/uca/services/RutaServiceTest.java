@@ -67,12 +67,8 @@ public class RutaServiceTest {
 	@Before
 	public void setUp() throws Exception {
 //		dependenciesLoader.cleanDataBase();
-	}
-
-	@Test
-	public void createRutaTest() {
 		nombrePais = "Argentina";
-		Pais pais = paisService.crearPais(nombrePais);
+		paisService.crearPais(nombrePais);
 		
 		nombreProvincia = "Buenos Aires";
 		provinciaService.crearProvincia(nombrePais, nombreProvincia);		
@@ -85,16 +81,20 @@ public class RutaServiceTest {
 		municipioService.crearMunicipio(nombreMunicipioInicioPrimerTramo, nombreProvincia, nombrePais);
 		municipioService.crearMunicipio(nombreMunicipioFinPrimerTramo, nombreProvincia, nombrePais);
 		municipioService.crearMunicipio(nombreMunicipioInicioSegundoTramo, nombreProvincia, nombrePais);
-		municipioService.crearMunicipio(nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);
-		
-		
+		municipioService.crearMunicipio(nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);				
 		
 		Tramo primerTramo = tramoService.crearTramo(nombreMunicipioInicioPrimerTramo, nombreProvincia, nombrePais, nombreMunicipioFinPrimerTramo, nombreProvincia, nombrePais);
 		Tramo segundoTramo = tramoService.crearTramo(nombreMunicipioInicioSegundoTramo, nombreProvincia, nombrePais, nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);
+		
 		tramos.add(primerTramo);
 		tramos.add(segundoTramo);
 		tipoRuta = "Provincial";
 		numeroRuta = 2;
+
+	}
+
+	@Test
+	public void createRutaTest() {
 		Ruta ruta = rutaService.crearRuta(tipoRuta, numeroRuta, tramos);
 		System.out.println(ruta.getTramos());
 		
