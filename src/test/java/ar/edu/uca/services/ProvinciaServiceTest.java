@@ -47,10 +47,6 @@ public class ProvinciaServiceTest {
 		dependenciesLoader.cleanDataBase();
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
 	public void createProvinciaTest() {
 
@@ -61,14 +57,21 @@ public class ProvinciaServiceTest {
 	}
 	@Test
 	public void borrarProvinciaTest() {
-		paisCreado = new Pais();
-		paisCreado.setNombre("Argentina");
 
 		paisService.crearPais("Argentina");
 		provinciaService.crearProvincia("Argentina", "Buenos Aires");
 		
 		assertTrue(provinciaService.borrarProvincia("Buenos Aires","Argentina"));
 		assertFalse(provinciaService.borrarProvincia("Mendoza","Argentina"));
+		
+	}
+	@Test
+	public void borrarProvinciaNoBorrePaisTest() {
+		paisCreado = new Pais();
+		paisCreado.setNombre("Argentina");
+
+		paisService.crearPais("Argentina");
+		provinciaService.crearProvincia("Argentina", "Buenos Aires");
 		
 		paisDeBase = paisRepository.findPaisByNombre("Argentina");
 		assertEquals(paisCreado, paisDeBase);

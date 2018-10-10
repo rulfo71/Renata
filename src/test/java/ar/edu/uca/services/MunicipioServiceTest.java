@@ -2,6 +2,7 @@ package ar.edu.uca.services;
 
 import ar.edu.uca.DependenciesLoader;
 import ar.edu.uca.entities.Municipio;
+import ar.edu.uca.entities.Pais;
 import ar.edu.uca.repositories.MunicipioRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -33,6 +35,10 @@ public class MunicipioServiceTest {
 	private MunicipioService municipioService;
 	@Autowired
 	private DependenciesLoader dependenciesLoader;
+	@Autowired
+	private Municipio municipioCreado;
+	@Autowired
+	private Municipio municipioDeBase;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -52,7 +58,7 @@ public class MunicipioServiceTest {
 	}
 	
 	@Test
-	public void borrarProvinciaTest() {
+	public void borrarMunicipioTest() {
 		paisService.crearPais("Argentina");
 		provinciaService.crearProvincia("Argentina", "Buenos Aires");
 		municipioService.crearMunicipio("San Isidro", "Buenos Aires", "Argentina");

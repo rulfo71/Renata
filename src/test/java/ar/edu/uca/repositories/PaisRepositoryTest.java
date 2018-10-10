@@ -14,6 +14,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -33,50 +37,62 @@ public class PaisRepositoryTest {
 
     @Before
     public void setUp() {
-        dependenciesLoader.setupTestEnvironment();
+//        dependenciesLoader.setupTestEnvironment();
+    }
+
+//    @Test
+//    public void findPaisByNombreTest() {
+//        System.out.println("Used entities in test: ");
+//        for (Pais pais : paisRepository.findAll()) {
+//            System.out.println(String.format("Nombre: %s", pais.getNombre()));
+//        }
+//    }
+
+    @Test
+    public void guardarTest() {
+        String nombrePais = "Argentina";
+
+        Pais paisTest = new Pais();
+        paisTest.setNombre(nombrePais);
+        paisRepository.save(paisTest);
+        Pais paisGuardado = paisRepository.findPaisByNombre(paisTest.getNombre());
+
+        assertNotNull(paisRepository.findPaisByNombre(paisTest.getNombre()));
+        assertEquals(paisTest.getNombre(), paisGuardado.getNombre());
     }
 
     @Test
-    public void findPaisByNombreTest() {
-        System.out.println("Used entities in test: ");
-        for (Pais pais : paisRepository.findAll()) {
-            System.out.println(String.format("Nombre: %s", pais.getNombre()));
-        }
+    public void borrarPaisTest() {
+        String nombrePais = "Uruguay";
+
+        Pais paisTest = new Pais();
+        paisTest.setNombre(nombrePais);
+        paisRepository.save(paisTest);
+
+        Pais paisGuardado = paisRepository.findPaisByNombre(paisTest.getNombre());
+
+        assertNotNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
+        paisRepository.removePaisByNombre(paisTest.getNombre());
+
+        assertNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
     }
-
-
-//
 //    @Test
-//    public void saveTest() {
-//        String nombrePais = "Argentina";
-//
-//        Pais paisTest = new Pais();
-//        paisTest.setNombrePais(nombrePais);
-//        paisRepository.save(paisTest);
-//
-//        Pais paisGuardado = paisRepository.findOne(paisTest.getPaisId());
-//
-//        assertNotNull(paisRepository.findOne(paisGuardado.getPaisId()));
-//        assertEquals(paisTest.getPaisId(), paisGuardado.getPaisId());
-//        assertEquals(paisTest.getNombrePais(), paisGuardado.getNombrePais());
-//
-//    }
-//
-//    @Test
-//    public void deleteTest() {
+//    public void borrarPaisDebeBorrarSusProvinciasTest() {
 //        String nombrePais = "Uruguay";
 //
 //        Pais paisTest = new Pais();
-//        paisTest.setNombrePais(nombrePais);
+//        paisTest.setNombre(nombrePais);
+//        
+//        
+//        
 //        paisRepository.save(paisTest);
 //
-//        Pais paisGuardado = paisRepository.findOne(paisTest.getPaisId());
+//        Pais paisGuardado = paisRepository.findPaisByNombre(paisTest.getNombre());
 //
-//        assertNotNull(paisRepository.findOne(paisGuardado.getPaisId()));
-//        paisRepository.delete(paisTest.getPaisId());
+//        assertNotNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
+//        paisRepository.removePaisByNombre(paisTest.getNombre());
 //
-//        assertNull(paisRepository.findOne(paisGuardado.getPaisId()));
-//
+//        assertNull(paisRepository.findPaisByNombre(paisGuardado.getNombre()));
 //    }
 
 }
