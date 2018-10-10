@@ -49,7 +49,7 @@ public class PaisRepositoryTest {
 //    }
 
     @Test
-    public void guardarTest() {
+    public void buscarTest() {
         String nombrePais = "Argentina";
         Pais paisTest = new Pais();
         paisTest.setNombre(nombrePais);

@@ -19,19 +19,19 @@ import org.springframework.transaction.annotation.Transactional;
 @WebAppConfiguration
 public class TramoRepositoryTest {
 
-    @Autowired
-    private DependenciesLoader dependenciesLoader;
+//    @Autowired
+//    private DependenciesLoader dependenciesLoader;
 
     @Before
     public void setupUp() {
-        dependenciesLoader.setupTestEnvironment();
+//        dependenciesLoader.setupTestEnvironment();
     }
 
     @Test
     public void findTramoByTramoIdTest() {
 
-        MunicipioId municipioIdInicio = new MunicipioId();
-        municipioIdInicio.setNombre("");
+//        MunicipioId municipioIdInicio = new MunicipioId();
+//        municipioIdInicio.setNombre("");
 
         Municipio municipioInicio = new Municipio();
         Municipio municipioFin = new Municipio();
