@@ -66,7 +66,7 @@ public class MunicipioRepositoryTest {
     }
 
     @Test
-    public void borrarTest() {
+    public void Test() {
         
         
         String nombrePais = "Uruguay";

@@ -44,7 +44,7 @@ public class TramoServiceTest {
 	}
 
 	@Test
-	public void buscarTramoTest() {
+	public void buscarTramoTest() {		
 		tramoService.buscarTramo("San Isidro", "Buenos Aires", "Argentina", "San Fernando", "Buenos Aires", "Argentina");
 	}
 }

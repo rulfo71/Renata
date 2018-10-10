@@ -18,7 +18,31 @@ public class Tramo {
     @Column(name = "kilometro_final")
     private int kilometroFinal;
 
-    public Tramo(){
+    public TramoId getId() {
+		return id;
+	}
+
+	public void setId(TramoId id) {
+		this.id = id;
+	}
+
+	public int getKilometroInicial() {
+		return kilometroInicial;
+	}
+
+	public void setKilometroInicial(int kilometroInicial) {
+		this.kilometroInicial = kilometroInicial;
+	}
+
+	public int getKilometroFinal() {
+		return kilometroFinal;
+	}
+
+	public void setKilometroFinal(int kilometroFinal) {
+		this.kilometroFinal = kilometroFinal;
+	}
+
+	public Tramo(){
     }
 
     public Tramo(Municipio municipioInicio, Municipio municipioFin) {

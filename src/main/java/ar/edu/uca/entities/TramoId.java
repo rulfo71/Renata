@@ -29,7 +29,23 @@ public class TramoId implements Serializable {
     })
     private Municipio municipioFin;
 
-    public TramoId(){
+    public Municipio getMunicipioInicio() {
+		return municipioInicio;
+	}
+
+	public void setMunicipioInicio(Municipio municipioInicio) {
+		this.municipioInicio = municipioInicio;
+	}
+
+	public Municipio getMunicipioFin() {
+		return municipioFin;
+	}
+
+	public void setMunicipioFin(Municipio municipioFin) {
+		this.municipioFin = municipioFin;
+	}
+
+	public TramoId(){
     }
 
     public TramoId(Municipio municipioInicio, Municipio municipioFin) {
