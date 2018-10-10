@@ -36,10 +36,7 @@ public class MunicipioServiceTest {
 	@Autowired
 	private DependenciesLoader dependenciesLoader;
 	@Autowired
-	private Municipio municipioCreado;
-	@Autowired
-	private Municipio municipioDeBase;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		dependenciesLoader.cleanDataBase();
@@ -50,7 +47,7 @@ public class MunicipioServiceTest {
 	}
 
 	@Test
-	public void createProvinciaTest() {
+	public void createMunicipioTest() {
 		assertNotNull(paisService.crearPais("Argentina"));
 		assertNotNull(provinciaService.crearProvincia("Argentina", "Buenos Aires"));
 		assertNotNull(municipioService.crearMunicipio("San Isidro", "Buenos Aires", "Argentina"));
