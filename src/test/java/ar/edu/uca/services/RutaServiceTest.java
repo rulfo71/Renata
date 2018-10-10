@@ -39,23 +39,13 @@ import org.junit.After;
 public class RutaServiceTest {
 
 	@Autowired
-	private PaisRepository paisRepository;
+	private PaisService paisService;	
 	@Autowired
-	private PaisService paisService;
-	@Autowired
-	private ProvinciaRepository provinciaRepository;
-	@Autowired
-	private ProvinciaService provinciaService;
-	@Autowired
-	private MunicipioRepository municipioRepository;
+	private ProvinciaService provinciaService;	
 	@Autowired
 	private MunicipioService municipioService;
 	@Autowired
 	private TramoService tramoService;
-	@Autowired
-	private TramoRepository tramoRepository;
-	@Autowired
-	private RutaRepository rutaRepository;
 	@Autowired
 	private RutaService rutaService;
 	private Collection<Tramo> tramos = new ArrayList<>();
@@ -82,21 +72,20 @@ public class RutaServiceTest {
 	@Test
 	public void createRutaTest() {
 		nombrePais = "Argentina";
-//		paisService = new PaisService(paisRepository);
 		Pais pais = paisService.crearPais(nombrePais);
 		
 		nombreProvincia = "Buenos Aires";
-//		provinciaService = new ProvinciaService(paisService, provinciaRepository);
-		Provincia provincia = provinciaService.crearProvincia(nombrePais, nombreProvincia);		
+		provinciaService.crearProvincia(nombrePais, nombreProvincia);		
 		
 		nombreMunicipioInicioPrimerTramo = "Tigre";
 		nombreMunicipioFinPrimerTramo = "Olivos";
 		nombreMunicipioInicioSegundoTramo = "Olivos";
 		nombreMunicipioFinSegundoTramo = "Florida";
-		Municipio municipioInicioPrimerTramo = municipioService.crearMunicipio(nombreMunicipioInicioPrimerTramo, nombreProvincia, nombrePais);
-		Municipio municipioFinPrimerTramo = municipioService.crearMunicipio(nombreMunicipioFinPrimerTramo, nombreProvincia, nombrePais);
-		Municipio municipioInicioSegundoTramo = municipioService.crearMunicipio(nombreMunicipioInicioSegundoTramo, nombreProvincia, nombrePais);
-		Municipio municipioFinSegundoTramo = municipioService.crearMunicipio(nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);
+		
+		municipioService.crearMunicipio(nombreMunicipioInicioPrimerTramo, nombreProvincia, nombrePais);
+		municipioService.crearMunicipio(nombreMunicipioFinPrimerTramo, nombreProvincia, nombrePais);
+		municipioService.crearMunicipio(nombreMunicipioInicioSegundoTramo, nombreProvincia, nombrePais);
+		municipioService.crearMunicipio(nombreMunicipioFinSegundoTramo, nombreProvincia, nombrePais);
 		
 		
 		
